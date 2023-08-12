@@ -8,12 +8,11 @@ const emit = defineEmits(["add-new-book", "update-book"]);
 const { mode, book: initialBook } = defineProps(["mode", "book"]);
 
 const categories = [
-  "Business",
-  "Programming",
-  "Sports",
-  "Health",
-  "Children",
-  "Cooking",
+  "Fantasy",
+  "Classic",
+  "Memoir",
+  "History",
+  "Dystopian",
 ];
 
 const dialog = ref(false);
