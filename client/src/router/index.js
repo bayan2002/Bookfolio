@@ -1,4 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
+
+const isAuthenticated = () => {
+  const token = localStorage.getItem("token");
+  console.log("token: ", token);
+  return token !== null && token !== "";
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,7 +55,20 @@ const router = createRouter({
         // },
       ],
     },
-  ]
-})
+  ],
+});
+router.beforeEach(async (to, from) => {
+  console.log("isAuthenticated: ", isAuthenticated());
+  if (
+    // make sure the user is authenticated
+    !isAuthenticated() &&
+    // ❗️ Avoid an infinite redirect
+    to.name !== "login" &&
+    to.name !== "register"
+  ) {
+    // redirect the user to the login page
+    return { name: "login" };
+  }
+});
 
-export default router
+export default router;
