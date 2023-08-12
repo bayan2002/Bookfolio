@@ -1,8 +1,9 @@
 const express = require("express");
 const userRouter = express.Router();
+const errorCatcher = require("../middlewares/errorCatcher");
+const { getUserData } = require("../controllers/user");
+const verifyToken = require("../middlewares/verifyToken");
 
-// get => '/' => get user data
-//get => '/profile; => get profile
-
+userRouter.get("/", verifyToken, errorCatcher(getUserData));
 
 module.exports = userRouter;
