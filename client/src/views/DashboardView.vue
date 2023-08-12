@@ -16,7 +16,19 @@ const drawer = ref(false);
 const fullName = ref();
 const searchResults = ref([]);
 
-const fetchUserData = () => {};
+
+const fetchUserData = () => {
+  axios
+    .get("/user")
+    .then((res) => {
+      const { user } = res.data.data;
+      fullName.value = `${user.firstName} ${user.lastName}`;
+      return null;
+    })
+    .catch((error) => {
+      console.log(error.response.data.message);
+    });
+};
 
 // Fetch user data on page load
 fetchUserData();
