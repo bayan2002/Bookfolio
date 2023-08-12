@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const isAuthenticated = () => {
   const token = localStorage.getItem("token");
-  console.log("token: ", token);
   return token !== null && token !== "";
 };
 
@@ -63,7 +62,6 @@ const router = createRouter({
   ],
 });
 router.beforeEach(async (to, from) => {
-  console.log("isAuthenticated: ", isAuthenticated());
   if (!isAuthenticated() && to.name !== "login" && to.name !== "register") {
     return { name: "login" };
   }

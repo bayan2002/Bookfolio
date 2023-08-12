@@ -20,7 +20,6 @@ const loading = ref(false);
 
 const fetchBookList = async () => {
   loading.value = true;
-  console.log("props.api: ", props.api);
   try {
     const response = await axios.get(props.api);
     const { data } = response.data;
@@ -57,8 +56,6 @@ const handleUpdateBook = (updatedBook) => {
 watch(
   () => props.searchResults,
   (newValue) => {
-    console.log("new value:", newValue);
-
     // to ensure the dom is updated after changes
     nextTick(() => {
       if (props.api === "/book") {
@@ -76,8 +73,6 @@ watch(
   () => props.api,
 
   (newValue) => {
-    console.log("new value:", newValue);
-
     // to ensure the dom is updated after changes
     nextTick(() => {
       fetchBookList();
