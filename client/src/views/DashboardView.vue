@@ -34,7 +34,6 @@ const fetchUserData = () => {
 fetchUserData();
 
 const logout = () => {
-  console.log("enter logout");
   localStorage.removeItem("token");
 };
 
@@ -66,9 +65,7 @@ const navigationLinks = [
   },
 ];
 const handleSearchBooks = (results) => {
-  console.log("results: ", results);
   searchResults.value = results;
-  console.log("searchResults.value: ", searchResults.value);
 };
 </script>
 <template>

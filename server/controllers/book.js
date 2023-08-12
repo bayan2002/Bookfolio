@@ -106,7 +106,6 @@ const deleteBook = async (req, res) => {
 const searchBooks = async (req, res) => {
   const { UserId } = req.user;
   const { query } = req.query;
-  console.log("query: ", query);
   const books = await Book.findAll({
     where: {
       UserId,

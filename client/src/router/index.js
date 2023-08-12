@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
+
+const isAuthenticated = () => {
+  const token = localStorage.getItem("token");
+  return token !== null && token !== "";
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,7 +54,17 @@ const router = createRouter({
         // },
       ],
     },
-  ]
-})
+    {
+      path: "/:catchAll(.*)",
+      name: "NotFound",
+      component: () => import("../pages/NotFound.vue"),
+    },
+  ],
+});
+router.beforeEach(async (to, from) => {
+  if (!isAuthenticated() && to.name !== "login" && to.name !== "register") {
+    return { name: "login" };
+  }
+});
 
-export default router
+export default router;

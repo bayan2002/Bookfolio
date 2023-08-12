@@ -21,7 +21,6 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.log("error from axios config: ", error);
     if (error.response.status === 401) {
       console.log("error.response.status: ", error.response.status === 401);
       setTimeout(() => {
