@@ -5,7 +5,6 @@ dotenv.config();
 const { NODE_ENV, DATABASE_URL, DEV_DATABASE_URL } = process.env;
 
 let url;
-console.log('NODE_ENV: ', NODE_ENV);
 switch (NODE_ENV) {
     case 'development':
       url = DEV_DATABASE_URL;

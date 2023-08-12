@@ -1,5 +1,7 @@
 const app = require("./app");
 
+const sequelize = require("./db/config/connection");
+
 const port = app.get("port");
 
 sequelize
