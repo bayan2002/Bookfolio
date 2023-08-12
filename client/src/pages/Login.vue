@@ -10,6 +10,8 @@ import {
   IconEyeOutline,
   IconEyeOffOutline,
 } from "@iconify-prerendered/vue-mdi";
+import axios from "../utils/axios";
+import router from "../router";
 import AuthProviders from "../components/AuthProviders.vue";
 
 const refForm = ref();
@@ -19,7 +21,19 @@ const isPasswordVisible = ref(false);
 const loginError = ref(undefined);
 
 const login = async () => {
+  try {
+    const response = await axios.post("/auth/login", {
+      email: email.value,
+      password: password.value,
+    });
 
+    const { token } = response.data;
+    localStorage.setItem("token", token);
+
+    router.push("/user/books");
+  } catch (error) {
+    loginError.value = error.response.data.message;
+  }
 };
 const onSubmit = () => {
   refForm.value?.validate().then(({ valid: isValid }) => {
