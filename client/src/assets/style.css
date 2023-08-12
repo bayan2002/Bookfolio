@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Rubik:wght@300;400&display=swap');
+
+:root {
+  --primary-color: #df7e7b;
+  --background-color: #ef9a9a1a;
+  --secondary-color: #608186;
+  --secondary-background-color: #fdf5f5;
+}
+body {
+  font-family: 'Rubik', Arial, sans-serif;
+}
