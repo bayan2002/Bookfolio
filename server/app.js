@@ -22,7 +22,7 @@ app.use([
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-// app.use("/api/v1", router);
+app.use("/api/v1", router);
 
 app.use(clientError);
 app.use(serverError);
