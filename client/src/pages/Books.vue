@@ -88,7 +88,7 @@ watch(
 </script>
 <template>
   <v-container class="pt-12">
-    <BookDialog mode="add" @add-new-book="handleAddNewBook" />
+    <BookDialog v-if="props.api === '/book'" mode="add" @add-new-book="handleAddNewBook" />
     <div v-if="loading" class="loading">
       <h1>Loading...</h1>
     </div>
@@ -125,7 +125,7 @@ watch(
 .no-data {
   max-width: 100%;
   width: 100%;
-  height: 67.5vh;
+  height: 77.5vh;
 }
 
 h1 {
