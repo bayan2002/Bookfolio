@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const compression = require("compression");
 const router = require("./routes");
+const { clientError, serverError } = require("./middlewares/errors");
 
 dotenv.config();
 
@@ -21,8 +22,9 @@ app.use([
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-
 // app.use("/api/v1", router);
 
+app.use(clientError);
+app.use(serverError);
 
 module.exports = app;
