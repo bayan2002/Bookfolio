@@ -1,0 +1,9 @@
+CREATE DATABASE bookfolio;
+
+BEGIN;
+
+CREATE USER userbayan WITH SUPERUSER PASSWORD '123456';
+
+ALTER DATABASE bookfolio OWNER TO userbayan;
+
+COMMIT;
