@@ -1,6 +1,7 @@
 # Bookfolio
 
-A full-stack web application for managing a personal book collection. The application allows users to add new books to their collection, view the list of books they have, add starred books and view starred books.
+Bookfolio is a full-stack web application that enables users to manage their personal book collections. The application includes user authentication, a user-friendly dashboard, book management functionalities, and search functionality. The front end is built using Vue.js and Vuetify, while the back end is developed using Node.js, Express, Sequelize, and PostgreSQL.
+
 
 # Instructions to Run the Application Locally:
 
