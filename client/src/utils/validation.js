@@ -25,3 +25,10 @@ export const passwordValidator = (password) => {
   const isValidPassword = password.length >= 8;
   return isValidPassword || "Password must be at least 8 characters";
 };
+
+export const urlValidator = (value) => {
+  const urlRegex =
+    /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}(\/\S*)?$/;
+  const isValid = urlRegex.test(String(value));
+  return isValid || "URL is invalid";
+};
