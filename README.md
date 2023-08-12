@@ -2,6 +2,12 @@
 
 Bookfolio is a full-stack web application that enables users to manage their personal book collections. The application includes user authentication, a user-friendly dashboard, book management functionalities, and search functionality. The front end is built using Vue.js and Vuetify, while the back end is developed using Node.js, Express, Sequelize, and PostgreSQL.
 
+## **Database** :bookmark_tabs: 
+
+[Database Link](https://drawsql.app/teams/bayan-1/diagrams/bookfolio)
+
+
+![image](https://github.com/bayan2002/Bookfolio/assets/88391328/2629a3d6-2598-4473-8164-275ff97f8e30)
 
 # Instructions to Run the Application Locally:
 
