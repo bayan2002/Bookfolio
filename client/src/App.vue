@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1>Bookfolio App</h1>
+  <RouterView />
 </template>
 
 <style scoped></style>
