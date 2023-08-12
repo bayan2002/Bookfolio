@@ -56,6 +56,7 @@ npm run dev
 ```
 
 The backend server will run on http://localhost:5000 by default.
+
 2- Start the frontend development server:
 
 ```sh
