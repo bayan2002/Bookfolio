@@ -10,7 +10,8 @@ import {
   IconEyeOutline,
   IconEyeOffOutline,
 } from "@iconify-prerendered/vue-mdi";
-
+import axios from "../utils/axios";
+import router from "../router";
 import AuthProviders from "../components/AuthProviders.vue";
 
 const refForm = ref();
@@ -22,7 +23,23 @@ const isPasswordVisible = ref(false);
 
 const emailError = ref(undefined);
 
-const register = async () => {};
+const register = async () => {
+  try {
+    const response = await axios.post("/auth/signup", {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
+    });
+
+    const { token } = response.data;
+    localStorage.setItem("token", token);
+
+    router.push("/user/books");
+  } catch (error) {
+    emailError.value = error.response.data.message;
+  }
+};
 
 const onSubmit = () => {
   refForm.value?.validate().then(({ valid: isValid }) => {
