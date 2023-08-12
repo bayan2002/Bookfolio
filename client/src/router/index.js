@@ -55,18 +55,16 @@ const router = createRouter({
         // },
       ],
     },
+    {
+      path: "/:catchAll(.*)",
+      name: "NotFound",
+      component: () => import("../pages/NotFound.vue"),
+    },
   ],
 });
 router.beforeEach(async (to, from) => {
   console.log("isAuthenticated: ", isAuthenticated());
-  if (
-    // make sure the user is authenticated
-    !isAuthenticated() &&
-    // ❗️ Avoid an infinite redirect
-    to.name !== "login" &&
-    to.name !== "register"
-  ) {
-    // redirect the user to the login page
+  if (!isAuthenticated() && to.name !== "login" && to.name !== "register") {
     return { name: "login" };
   }
 });
