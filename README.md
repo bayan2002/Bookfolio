@@ -53,6 +53,12 @@ JWT_SECRET=your-secret-key
 
 Replace username, password, and database_name with your PostgreSQL credentials and desired database name. Also, set a secure value for JWT_SECRET to handle JSON Web Tokens.
 
+5-Seed the database with fake book data by running the follwing command:
+
+```sh
+npm run db:seed
+```
+
 # Running the Application
 
 1- Start the backend server:
@@ -81,3 +87,11 @@ The frontend server will run on the port mentioned in the console logs. Check th
 - BackEnd: **Node JS & Express JS**
 - Database: **PostgreSQL**
 - OMR: **Sequelize**
+
+  
+**Note:**
+To explore Bookfolio, you can login using the following credentials:
+- Email: user@gmail.com
+- Password: 12345678
+
+These credentials will grant you access to view the books that have been added as fake data, allowing you to fully experience the application's capabilities.
