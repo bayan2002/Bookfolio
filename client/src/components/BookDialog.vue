@@ -13,6 +13,7 @@ const categories = [
   "Memoir",
   "History",
   "Dystopian",
+  "Mystery"
 ];
 
 const dialog = ref(false);
