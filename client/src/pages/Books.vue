@@ -42,11 +42,10 @@ const handleDeleteBook = (book) => {
   );
 };
 const handleUpdateBook = (updatedBook) => {
-  if (props.api === "/book") {
-    bookList.value = bookList.value.map((book) =>
-      book.id === updatedBook.id ? updatedBook : book
-    );
-  } else {
+  bookList.value = bookList.value.map((book) =>
+    book.id === updatedBook.id ? updatedBook : book
+  );
+  if (props.api === "/book/starred" && !updatedBook.starred) {
     bookList.value = bookList.value.filter(
       (bookFilter) => bookFilter.id !== updatedBook.id
     );
