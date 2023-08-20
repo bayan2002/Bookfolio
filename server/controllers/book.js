@@ -36,6 +36,7 @@ const getAllUserBooks = async (req, res) => {
     msg: "Successful get all user's books",
   });
 };
+
 const getSingleBook = async (req, res) => {
   const { bookId } = req.params;
   const { UserId } = req.user;
@@ -82,6 +83,7 @@ const updateBook = async (req, res) => {
     msg: "Successful update book",
   });
 };
+
 const deleteBook = async (req, res) => {
   const { UserId } = req.user;
   const { bookId } = req.params;
@@ -115,6 +117,7 @@ const searchBooks = async (req, res) => {
         { category: { [Op.iLike]: `%${query}%` } },
       ],
     },
+    order: [["id", "DESC"]],
   });
   res.send({
     status: 200,
@@ -122,6 +125,7 @@ const searchBooks = async (req, res) => {
     msg: "Successful search books",
   });
 };
+
 const getStarredBooks = async (req, res) => {
   const { UserId } = req.user;
   const starredBooks = await Book.findAll({
@@ -129,6 +133,7 @@ const getStarredBooks = async (req, res) => {
       UserId,
       starred: true,
     },
+    order: [["id", "DESC"]],
   });
   res.send({
     status: 200,
@@ -136,6 +141,7 @@ const getStarredBooks = async (req, res) => {
     msg: "Successful get starred books",
   });
 };
+
 module.exports = {
   addBook,
   getAllUserBooks,
