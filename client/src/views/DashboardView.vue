@@ -14,8 +14,6 @@ import axios from "../utils/axios";
 
 const drawer = ref(false);
 const fullName = ref();
-const searchResults = ref([]);
-
 
 const fetchUserData = () => {
   axios
@@ -64,9 +62,6 @@ const navigationLinks = [
     click: logout,
   },
 ];
-const handleSearchBooks = (results) => {
-  searchResults.value = results;
-};
 </script>
 <template>
   <v-app id="inspire">
@@ -121,11 +116,11 @@ const handleSearchBooks = (results) => {
 
       <v-spacer></v-spacer>
 
-      <SearchInput @search-books="handleSearchBooks"></SearchInput>
+      <SearchInput></SearchInput>
     </v-app-bar>
 
     <v-main>
-      <RouterView :searchResults="searchResults"></RouterView>
+      <RouterView></RouterView>
       <HomeFooter />
     </v-main>
   </v-app>

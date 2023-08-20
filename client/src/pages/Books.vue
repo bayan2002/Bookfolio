@@ -3,12 +3,9 @@ import { ref, watch, nextTick } from "vue";
 import BookCard from "../components/BookCard.vue";
 import BookDialog from "../components/BookDialog.vue";
 import axios from "../utils/axios";
+import { store } from "../store.js";
 
 const props = defineProps({
-  searchResults: {
-    type: Array,
-    default: () => [],
-  },
   api: {
     type: String,
     required: true,
@@ -53,29 +50,23 @@ const handleUpdateBook = (updatedBook) => {
 };
 
 watch(
-  () => props.searchResults,
+  () => store.searchResult,
   (newValue) => {
-    // to ensure the dom is updated after changes
-    nextTick(() => {
-      if (props.api === "/book") {
-        bookList.value = [...newValue];
-      } else {
-        bookList.value = newValue.filter(
-          (bookFilter) => bookFilter.starred !== false
-        );
-      }
-    });
+    if (props.api === "/book") {
+      bookList.value = [...newValue];
+    } else {
+      bookList.value = newValue.filter(
+        (bookFilter) => bookFilter.starred !== false
+      );
+    }
   },
   { immediate: true }
 );
+
 watch(
   () => props.api,
-
-  (newValue) => {
-    // to ensure the dom is updated after changes
-    nextTick(() => {
-      fetchBookList();
-    });
+  () => {
+    fetchBookList();
   },
   { immediate: true }
 );
